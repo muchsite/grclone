@@ -1,0 +1,343 @@
+@use "../../App.scss" as *;
+
+.blogs {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 0;
+  gap: 3rem;
+  @include breack_down(large) {
+    margin-top: 5rem;
+  }
+  h2 {
+    color: $mainBlue;
+  }
+}
+.blog_cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5rem;
+  @include breack_down(large) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include breack_down(medium) {
+    grid-template-columns: 1fr;
+  }
+  .home_blog_item {
+    @include breack_down(large) {
+      width: 40vw;
+    }
+    @include breack_down(medium) {
+      width: 80vw;
+    }
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .home_blogs_title {
+      color: $mainBlue;
+    }
+    position: relative;
+    overflow: hidden;
+
+    .blogs_hover {
+      transition: 0.5s;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.34);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8.1px);
+      -webkit-backdrop-filter: blur(8.1px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      bottom: -100%;
+      h3 {
+        color: #fff;
+      }
+    }
+    .blogs_hover_active {
+      bottom: 0;
+    }
+    .details_btn_blogs {
+      text-decoration: none;
+      background-color: $mainBlue;
+      padding: 0.7rem 1.5rem;
+      color: #fff;
+      border-radius: 20px;
+      transition: 0.5s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+// signgle blog
+.single_blog_cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10rem;
+  @include breack_down(large) {
+    margin-top: 5rem;
+  }
+  padding: 5rem 0;
+  gap: 5rem;
+  .blog_title {
+    text-align: center;
+    font-family: "Roboto Mono", monospace;
+    color: $mainBlue;
+  }
+  .blog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    width: 80vw;
+  }
+  .blog_likes_cont {
+    display: flex;
+    gap: 3rem;
+    width: 100%;
+    justify-content: center;
+    .blog_likes {
+      color: #4275f5;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      img {
+        cursor: pointer;
+        width: 2rem;
+        filter: invert(38%) sepia(97%) saturate(1762%) hue-rotate(209deg)
+          brightness(95%) contrast(103%);
+        transition: 0.4s;
+        &:hover {
+          filter: invert(88%) sepia(20%) saturate(1365%) hue-rotate(94deg)
+            brightness(99%) contrast(94%);
+        }
+      }
+    }
+    .blog_liked {
+      img {
+        filter: invert(88%) sepia(20%) saturate(1365%) hue-rotate(94deg)
+          brightness(99%) contrast(94%);
+      }
+    }
+  }
+
+  .blog_content {
+    @include breack_down(large) {
+      width: 80vw;
+    }
+    @include breack_down(medium) {
+      width: 90vw;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+.blog_coments_container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  overflow-y: scroll;
+  z-index: 100;
+  transition: 0.3s;
+  z-index: 10000000;
+  left: 100vw;
+  @include breack_down(large) {
+    left: 0;
+    top: 100vh;
+  }
+  .blog_coments_bacground {
+    background-color: rgba(0, 0, 0, 0.26);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+  }
+  .coment_closed {
+    position: relative;
+    border-radius: 10px;
+    overflow-y: scroll;
+    background-color: $mainBlue;
+    padding: 3rem;
+    width: 40vw;
+    @include breack_down(large) {
+      top: 3rem;
+      width: 100%;
+    }
+  }
+}
+.opacity_zero {
+  display: none !important;
+}
+.openComents {
+  left: 0;
+  @include breack_down(large) {
+    left: 0;
+    top: 0;
+  }
+}
+
+.recomended_courses {
+  width: 100%;
+  overflow: hidden;
+  gap: 2rem;
+  h2 {
+    margin: 3rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  .rec_relative_cont {
+    position: relative;
+    left: 5vw;
+    @include breack_down(medium) {
+      left: 10vw;
+    }
+  }
+  .recomended_courses {
+    width: 100%;
+    overflow: hidden;
+    gap: 2rem;
+    h2 {
+      margin: 3rem 0;
+      width: 100%;
+      text-align: center;
+    }
+    .rec_relative_cont {
+      position: relative;
+      left: 5vw;
+      @include breack_down(medium) {
+        left: 10vw;
+      }
+    }
+    .courses_rec_cont {
+      display: flex;
+      gap: 5rem;
+      position: relative;
+      transition: 1s;
+      width: fit-content;
+      .courses_rec_item {
+        background-color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        width: 25vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        img {
+          width: 100%;
+          height: 12rem;
+        }
+        color: $mainBlue;
+        @include breack_down(large) {
+          width: 40vw;
+        }
+        @include breack_down(medium) {
+          width: 80vw;
+        }
+        .rec_yeses {
+          .rec_yes {
+            display: flex;
+            img {
+              width: 1.2rem;
+              height: 1.2rem;
+            }
+          }
+        }
+        .course_rec_text {
+          h3 {
+            text-align: center;
+            margin: 1rem 0;
+          }
+        }
+        img {
+          width: 100%;
+          border-radius: 5px 5px 0 0;
+        }
+      }
+    }
+
+    .rec_btns {
+      width: 100%;
+      justify-content: center;
+      margin: 3rem 0;
+      display: flex;
+      gap: 2rem;
+    }
+  }
+  .courses_rec_cont {
+    display: flex;
+    gap: 5rem;
+    position: relative;
+    transition: 1s;
+    width: fit-content;
+    .courses_rec_item {
+      background-color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      width: 25vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      img {
+        width: 100%;
+        height: 12rem;
+      }
+      color: $mainBlue;
+      @include breack_down(large) {
+        width: 40vw;
+      }
+      @include breack_down(medium) {
+        width: 80vw;
+      }
+      .rec_yeses {
+        .rec_yes {
+          display: flex;
+          img {
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+        }
+      }
+      .course_rec_text {
+        h3 {
+          text-align: center;
+          margin: 1rem 0;
+        }
+      }
+      img {
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+      }
+    }
+  }
+
+  .rec_btns {
+    width: 100%;
+    justify-content: center;
+    margin: 3rem 0;
+    display: flex;
+    gap: 2rem;
+  }
+}

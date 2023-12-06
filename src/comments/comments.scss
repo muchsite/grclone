@@ -1,0 +1,88 @@
+@use "../App.scss" as *;
+
+.comments_cont {
+  // margin-top: 5rem;
+  // padding: 3rem;
+  height: 110vh;
+  h3 {
+    color: #fff;
+  }
+  .comments {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .comment {
+      width: fit-content;
+      position: relative;
+      h3 {
+        color: #fff;
+      }
+      p {
+        margin-left: 1rem;
+        margin-top: 0.7rem;
+        background-color: $secGreen;
+        border-bottom: 1px solid $mainGreen;
+        padding: 0.7rem;
+        border-radius: 10px;
+        color: $mainGrey;
+        font-style: italic;
+      }
+    }
+  }
+  .comment_input {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+    height: 3rem;
+    overflow: hidden;
+    transition: 1s;
+    input {
+      padding: 0.7rem;
+      outline: none;
+    }
+    textarea {
+      padding: 0.7rem;
+      outline: none;
+      max-width: 100%;
+      min-height: 4rem;
+    }
+    .comment_button_cont {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      button {
+        width: fit-content;
+        padding: 0.7rem 0.5rem;
+        background-color: $mainRed;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover {
+          background-color: #fff;
+          color: $mainRed;
+        }
+      }
+      .comment_yes {
+        width: 2rem;
+        height: 2rem;
+        filter: invert(88%) sepia(20%) saturate(1365%) hue-rotate(94deg)
+          brightness(99%) contrast(94%);
+      }
+    }
+  }
+  .comment_focus {
+    height: 14rem;
+  }
+}
+.comments_title_cont {
+  display: flex;
+  justify-content: space-between;
+  img {
+    cursor: pointer;
+    width: 2.3rem;
+  }
+}

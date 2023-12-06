@@ -1,0 +1,85 @@
+@use "../../App.scss" as *;
+.slider_cont {
+  margin-top: 5rem;
+  overflow: hidden;
+  position: relative;
+  transition: 0.7s ease-in-out;
+  display: flex;
+}
+
+.slider {
+  display: flex;
+  position: relative;
+  transition: 1s;
+}
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100vw;
+  position: relative;
+}
+.slider_btns {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  left: 60%;
+  top: 40%;
+  .slider_link {
+    text-decoration: none;
+    color: rgb(10, 10, 182);
+    font-size: 20px;
+    span {
+      color: $blue;
+    }
+  }
+  button {
+    color: #fff;
+    background-color: rgb(245, 7, 7);
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.7s;
+    &:hover {
+      background-color: rgb(255, 62, 62);
+    }
+  }
+}
+.slide_img {
+  width: 70vw;
+  height: 10rem;
+  @include breack_down(medium) {
+    width: 90vw;
+  }
+}
+.slider_btn {
+  width: 5rem;
+  display: block;
+  margin: 3rem auto 0 auto;
+  display: flex;
+  gap: 1rem;
+}
+.slide_left {
+  fill: $grayBlue;
+  width: 2rem;
+  height: 3rem;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.07);
+  }
+}
+.slide_right {
+  fill: $grayBlue;
+  width: 2rem;
+  height: 3rem;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.07);
+  }
+}

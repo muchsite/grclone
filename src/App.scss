@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Roboto:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Barlow", sans-serif;
+  font-family: "Roboto", sans-serif;
+  // outline: 2px red solid !important;
+}
+// h2 {
+//   font-family: "Roboto Mono", monospace;
+// }
+body {
+  background-color: #e4fdfe;
+}
+
+$mainRed: #ed1c24;
+$mainBlue: #006ab6;
+$mainGreen: #00a651;
+$mainGrey: #5a6273;
+$grayGreen: #3676ff;
+$blue: rgb(87, 87, 246);
+$darkBlue: rgb(32, 32, 140);
+$darkGreyBlue: rgb(52, 52, 146);
+$grayBlue: rgb(158, 158, 247);
+$seeAll: rgb(172, 172, 216);
+$footer: rgb(0, 45, 2);
+$accBlue: rgba(0, 0, 255, 0.082);
+// vars
+$secGreen: #d6ffe9;
+$grey: #e6edfb;
+$purpleBlue: #605dec;
+$breack-up: (
+  "small": "600px",
+  "medium": "1164px",
+);
+$breack-down: (
+  "medium": "599px",
+  "large": "1163px",
+);
+
+@mixin breack_up($size) {
+  @media (min-width: map-get($breack-up, $size)) {
+    @content;
+  }
+}
+@mixin breack_down($size) {
+  @media (max-width: map-get($breack-down, $size)) {
+    @content;
+  }
+}
+
+.dn_for_mobile {
+  @include breack_down(medium) {
+    display: none !important;
+  }
+}
+.dn_for_tab_up {
+  @include breack_up(small) {
+    display: none !important;
+  }
+}
+.dn_for_tab_down {
+  @include breack_down(large) {
+    display: none !important;
+  }
+}
+.dn_for_large {
+  @include breack_up(medium) {
+    display: none !important;
+  }
+}
+.outline_red {
+  outline: $mainRed 1px solid !important;
+}
+.archive_Btns {
+  margin: 2rem 0;
+  display: flex;
+  button {
+    padding: 1rem 0;
+    transition: 0.4s;
+    width: 35vw;
+    font-size: 20px;
+  }
+  .curr_state {
+    background-color: $mainBlue;
+    border: none;
+    color: #fff;
+    outline: 1px solid $mainBlue;
+    cursor: pointer;
+  }
+  .prev_state {
+    background-color: $mainBlue;
+    border: none;
+    background-color: #fff;
+    outline: 1px solid $mainBlue;
+    color: $mainBlue;
+    cursor: pointer;
+  }
+}
+.html_text {
+  padding: 1rem 4rem;
+  width: 100%;
+  @include breack_down(large) {
+    padding: 0.5rem;
+  }
+  h4 {
+    margin-bottom: 1rem;
+  }
+  h2 {
+    margin-bottom: 1rem;
+  }
+  p {
+    color: rgb(0, 0, 0);
+    margin: 1rem 0;
+    line-height: 20px;
+  }
+  h1,
+  h3,
+  h2,
+  h4 {
+    margin: 1rem 0;
+    display: block;
+    color: $mainBlue;
+    background-color: rgba(164, 241, 255, 0.308);
+    padding: 1rem;
+  }
+
+  ul {
+    margin-left: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: black;
+    @include breack_down(large) {
+      margin-left: 1.5rem;
+    }
+    li {
+      margin-top: 10px;
+    }
+  }
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+.html_text_webinar {
+  width: 100%;
+  @include breack_down(large) {
+    padding: 0.5rem;
+  }
+  // h4 {
+  //   margin-bottom: 1rem;
+  // }
+  // h2 {
+  //   margin-bottom: 1rem;
+  // }
+  p {
+    color: rgb(0, 0, 0);
+    margin: 1rem 0;
+    line-height: 20px;
+  }
+  h3,
+  h2,
+  h1 {
+    color: $mainBlue;
+    margin: 1rem 0;
+    @include breack_down(medium) {
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+  }
+  ul {
+    margin-left: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: black;
+    @include breack_down(large) {
+      margin-left: 1.5rem;
+    }
+    li {
+      margin: 10px 0;
+    }
+  }
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+.error_input {
+  outline: 1px solid red !important;
+}
+.yes {
+  width: 2rem;
+  filter: invert(68%) sepia(100%) saturate(1642%) hue-rotate(79deg)
+    brightness(89%) contrast(92%);
+}
+.error_input_p {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(175%);
+  color: red;
+  text-align: left;
+  width: 100%;
+  @include breack_down(medium) {
+    font-size: 13px;
+  }
+}
+
+.margin_bottom {
+  margin-bottom: 2rem;
+  @include breack_down(medium) {
+    margin-bottom: 1rem;
+  }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

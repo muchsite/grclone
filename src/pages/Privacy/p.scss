@@ -1,0 +1,15 @@
+@use "../../App.scss" as *;
+.privacy_container {
+  padding: 10rem 3rem 4rem 3rem;
+  @include breack_down(medium) {
+    padding: 10rem 1rem 4rem 1rem;
+  }
+  strong,
+  h2 {
+    @include breack_down(medium) {
+      margin: 0.5rem 0;
+    }
+    font-size: 20px;
+    margin: 1rem 0;
+  }
+}

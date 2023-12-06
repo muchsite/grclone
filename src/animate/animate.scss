@@ -1,0 +1,52 @@
+@use "../App.scss" as *;
+.animate-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: bounceIn 1s 1s;
+  animation-fill-mode: forwards;
+  min-width: 10px;
+}
+.animate-letter-hover {
+  display: inline-block;
+  min-width: 10px;
+  cursor: pointer;
+  &:hover {
+    animation: rubberBand 1s;
+    color: $mainGreen;
+  }
+}
+@keyframes diss {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.about_animate_before {
+  opacity: 0;
+}
+.about_animate {
+  display: inline-block;
+  opacity: 0;
+  animation: bounceIn 1s 1s;
+  animation-fill-mode: forwards;
+  min-width: 10px;
+  color: $grayGreen;
+}
+.about_bounce_class {
+  cursor: default;
+  color: $grayGreen;
+  display: inline-block;
+  min-width: 10px;
+  &:hover {
+    animation: rubberBand 1s;
+    color: white;
+  }
+}
+
+@for $i from 1 through 70 {
+  ._#{$i} {
+    animation-delay: #{$i / 15}s;
+  }
+}

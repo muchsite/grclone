@@ -1,0 +1,162 @@
+@use "../App.scss" as *;
+.carrer_container {
+  //   min-height: 150vh;
+  // width: 100%;
+  overflow: hidden;
+  background-color: $mainBlue;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7rem;
+  padding: 4rem 3rem 8rem 3rem;
+  @include breack_down(large) {
+    padding: 5rem 3rem;
+  }
+  h3 {
+    color: #fff;
+    font-size: 30px;
+    @include breack_down(large) {
+      text-align: center;
+    }
+  }
+}
+.carrer_btns {
+  display: flex;
+  gap: 1rem;
+  width: 30vw;
+  justify-content: space-between;
+  align-items: flex-end;
+  transition: 0.3s;
+  @include breack_down(large) {
+    width: 90vw;
+  }
+  .car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    p {
+      color: #fff;
+      text-align: center;
+    }
+  }
+  .car_active {
+    p {
+      color: rgb(215, 252, 53);
+    }
+  }
+  .carrer_btn {
+    padding: 0.5rem;
+    width: fit-content;
+  }
+  .carrer_btn_active {
+    outline: 1px solid rgb(215, 252, 53);
+  }
+  .carrer_btn_color {
+    width: 1rem;
+    height: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.3s background-color;
+  }
+  .carrer_btn_color_active {
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: rgb(215, 252, 53);
+  }
+}
+.career_item_container {
+  width: 300vw;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  transition: 0.3s;
+}
+.career_item_container0 {
+  left: 100vw;
+}
+.career_item_container1 {
+  left: 0;
+}
+.career_item_container2 {
+  left: -100vw;
+}
+.career_item {
+  width: 100vw;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 7rem;
+  @include breack_down(large) {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  .career_item_images {
+    position: relative;
+    img {
+      width: 30vw;
+      @include breack_down(large) {
+        width: 70vw;
+      }
+    }
+    .career_image1 {
+      position: relative;
+      z-index: 4;
+      top: 4rem;
+      left: 4rem;
+      @include breack_down(large) {
+        left: 10px;
+        top: 2rem;
+      }
+    }
+    .career_image2 {
+      position: absolute;
+      z-index: 3;
+      top: 0rem;
+      left: 2rem;
+      @include breack_down(large) {
+        left: 0px;
+      }
+    }
+    .career_image3 {
+      position: absolute;
+      z-index: 2;
+      top: 2rem;
+      left: 0;
+      @include breack_down(large) {
+        left: -30px;
+      }
+    }
+  }
+  .career_item_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    @include breack_down(medium) {
+      gap: 1rem;
+    }
+    h4 {
+      color: #fff;
+      font-family: "Roboto Mono", monospace;
+      font-size: 2rem;
+      @include breack_down(medium) {
+        font-size: 1.6rem;
+      }
+    }
+    p {
+      color: $grey;
+      font-size: 1.3rem;
+      line-height: 1.7rem;
+      letter-spacing: 0.7px;
+      @include breack_down(medium) {
+        width: 95vw;
+        font-size: 1rem;
+        text-align: center;
+      }
+    }
+  }
+}

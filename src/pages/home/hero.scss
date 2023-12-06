@@ -1,0 +1,205 @@
+@use "../../App.scss" as *;
+
+.hero_cont {
+  min-height: 75vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  position: relative;
+  overflow: hidden;
+  @include breack_down(large) {
+    flex-direction: column;
+  }
+  margin-top: 10rem;
+  @include breack_down(medium) {
+    min-height: 60vh;
+    margin-top: 8rem;
+  }
+  .hero_text {
+    z-index: 100;
+    h1 {
+      font-size: 50px;
+      color: $mainBlue;
+      @include breack_down(large) {
+        margin-top: 5rem;
+        text-align: center;
+      }
+      @include breack_down(medium) {
+        font-size: 27px;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        width: 100vw;
+      }
+    }
+  }
+  .hero_form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 3rem;
+    overflow-x: hidden;
+    z-index: 100;
+    @include breack_up(medium) {
+      width: 36rem;
+    }
+    @include breack_down(large) {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      width: 90vw;
+    }
+    .hero_form_title {
+      color: $mainBlue;
+      span {
+        color: $mainRed;
+      }
+    }
+    .hero_input {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+
+      input {
+        border: 0.1rem solid #eaeff4;
+        padding: 1rem;
+        width: 100%;
+        color: #364764;
+        @include breack_down(medium) {
+          padding: 0.7rem;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .input_name {
+      position: relative;
+      color: $mainBlue;
+      .name_after {
+        position: absolute;
+        top: 0;
+        left: 7px;
+        transform: translate(19%, 69%);
+        transition: 0.2s;
+      }
+    }
+    .after_top {
+      top: -1.5rem !important;
+      z-index: 3;
+    }
+  }
+}
+.hero_form_btns {
+  display: flex;
+  justify-content: space-between;
+  @include breack_down(large) {
+    justify-content: flex-start;
+  }
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  .hero_form_btn {
+    background-color: $mainRed;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    @include breack_down(medium) {
+      border-radius: 7px;
+      font-size: 10px;
+      padding: 0.7rem;
+      margin-top: 1rem;
+    }
+    transition: 0.6s;
+    &:hover {
+      color: $mainRed;
+      background-color: #fff;
+      outline: $mainRed 1px solid;
+    }
+  }
+  .hero_form_limited {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: $mainRed;
+    @include breack_down(medium) {
+      font-size: 10px;
+    }
+    img {
+      width: 2rem;
+      height: 2rem;
+      filter: invert(27%) sepia(92%) saturate(5458%) hue-rotate(346deg)
+        brightness(92%) contrast(103%);
+      @include breack_down(medium) {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+    cursor: pointer;
+    transition: 0.6s;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.error_message {
+  color: red;
+  position: absolute;
+  min-width: 100%;
+  bottom: 0%;
+  right: 50%;
+  transform: translate(50%, 110%);
+  font-size: 15px;
+  @include breack_down(medium) {
+    font-size: 13px;
+  }
+}
+.sent_message {
+  position: absolute;
+  top: 0px;
+  left: 30%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+  animation: bounceInLeft 1s, bounceOutRight 1s 3s forwards;
+  p {
+    background: linear-gradient(to right, $mainBlue, $mainGreen);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 40px;
+  }
+  img {
+    width: 4rem;
+    height: 4rem;
+    filter: invert(50%) sepia(26%) saturate(5600%) hue-rotate(119deg)
+      brightness(87%) contrast(101%);
+  }
+}
+
+.herp {
+  position: absolute;
+  top: -63px;
+  left: 38px;
+  width: 100%;
+  filter: invert(26%) sepia(76%) saturate(6648%) hue-rotate(348deg)
+    brightness(93%) contrast(98%);
+  @include breack_down(medium) {
+    top: 2rem;
+    left: 0;
+  }
+}
+.hero_yes {
+  width: 2.2rem;
+  filter: invert(50%) sepia(26%) saturate(5600%) hue-rotate(119deg)
+    brightness(87%) contrast(101%);
+}

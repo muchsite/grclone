@@ -1,0 +1,260 @@
+@use "../../App.scss" as *;
+.career_cont {
+  margin: 12rem 0 5rem 0;
+  @include breack_down(large) {
+    margin: 8rem 0 5rem 0;
+  }
+  @include breack_down(large) {
+    // margin: 6rem 0 5rem 0;
+  }
+}
+.career_hero {
+  background-image: url("../../images/joinhero.svg");
+  margin-bottom: 10rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @include breack_up(medium) {
+    height: 70vh;
+  }
+  @include breack_down(large) {
+    margin-bottom: 5rem;
+    background-size: contain;
+    background-position: 25% 100%;
+  }
+  .career_hero_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    @include breack_down(large) {
+      width: 100%;
+      gap: 1rem;
+      padding-bottom: 3rem;
+    }
+    h2 {
+      font-size: 50px;
+      color: $mainBlue;
+      @include breack_down(medium) {
+        font-size: 35px;
+      }
+    }
+    p {
+      width: 40%;
+      font-size: 20px;
+      color: rgb(0, 0, 0);
+      @include breack_down(large) {
+        width: 80%;
+      }
+      @include breack_down(medium) {
+        width: 90%;
+        font-size: 16px;
+      }
+    }
+    button {
+      padding: 1rem 2.5rem;
+      background-color: $mainBlue;
+      border: none;
+      cursor: pointer;
+      transition: 0.5s;
+      color: #fff;
+      border-radius: 5px;
+      outline: 1px solid $mainBlue;
+      @include breack_down(large) {
+        padding: 0.5rem 1rem;
+      }
+      &:hover {
+        background-color: #fff;
+        color: $mainBlue;
+      }
+    }
+  }
+}
+.career_subTitle {
+  margin: 5rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  h2 {
+    font-size: 35px;
+    color: $mainBlue;
+    @include breack_down(large) {
+      font-size: 25px;
+    }
+  }
+  p {
+    color: $mainGrey;
+    max-width: 60%;
+    @include breack_down(large) {
+      max-width: 90%;
+    }
+  }
+}
+.career_why {
+  padding: 3rem;
+  h2 {
+    font-size: 35px;
+    color: $mainBlue;
+    margin-bottom: 3rem;
+    text-align: center;
+    @include breack_down(large) {
+      font-size: 25px;
+    }
+  }
+  .career_why_divs {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    @include breack_down(large) {
+      flex-direction: column;
+    }
+    .career_why_div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      width: 25vw;
+      padding: 2rem;
+      text-align: center;
+      gap: 2rem;
+      border-radius: 7px;
+      box-shadow: 2px 2px 10px $grayGreen;
+      @include breack_down(large) {
+        width: auto;
+      }
+      img {
+        width: 5rem;
+      }
+      .team_svg {
+        filter: invert(30%) sepia(91%) saturate(2340%) hue-rotate(187deg)
+          brightness(80%) contrast(101%);
+      }
+      .money_svg {
+        filter: invert(43%) sepia(49%) saturate(5290%) hue-rotate(131deg)
+          brightness(97%) contrast(101%);
+      }
+      .hit_svg {
+        filter: invert(26%) sepia(76%) saturate(6648%) hue-rotate(348deg)
+          brightness(93%) contrast(98%);
+      }
+    }
+  }
+}
+.career_form {
+  margin-top: 5rem;
+  display: flex;
+  padding: 0 3rem;
+  justify-content: space-between;
+  @include breack_down(large) {
+    padding: 0 0.7rem;
+    flex-direction: column;
+  }
+  img {
+    width: 60%;
+    @include breack_down(large) {
+      width: 100%;
+    }
+  }
+  form {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    height: fit-content;
+    width: 35%;
+    padding: 2rem;
+    border-radius: 7px;
+    @include breack_down(large) {
+      width: 100%;
+    }
+    .career_form_div {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.7rem;
+      input {
+        width: 20rem;
+        padding: 1rem;
+        border-radius: 7px;
+        border: none;
+        outline: 1px solid $mainBlue;
+        @include breack_down(large) {
+          width: 15rem;
+        }
+        @include breack_down(medium) {
+          width: 12rem;
+          padding: 0.7rem;
+          flex-shrink: 0;
+        }
+      }
+    }
+    .career_form_div_file {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.7rem;
+      input {
+        width: 20rem;
+        padding: 1rem;
+        border-radius: 7px;
+        border: none;
+        @include breack_down(large) {
+          width: 15rem;
+        }
+        @include breack_down(medium) {
+          width: 10rem;
+        }
+      }
+    }
+    button {
+      width: fit-content;
+      // margin-top: 1rem;
+      padding: 1rem 2.2rem;
+      background-color: $mainRed;
+      border: none;
+      border-radius: 7px;
+      outline: 1px solid $mainRed;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.5s;
+      @include breack_down(large) {
+        padding: 0.5rem 1rem;
+        margin-top: 0;
+      }
+      &:hover {
+        background-color: #fff;
+        color: $mainRed;
+      }
+    }
+  }
+}
+.career_loading {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  width: 100%;
+  gap: 3rem;
+}
+.contact_sent {
+  height: 2.2rem;
+  width: 2.2rem !important;
+  filter: invert(56%) sepia(24%) saturate(4708%) hue-rotate(88deg)
+    brightness(114%) contrast(122%);
+}
+.career_error_m {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(120%);
+  color: red;
+  right: 0;
+  @include breack_down(medium) {
+    font-size: 13px;
+  }
+}

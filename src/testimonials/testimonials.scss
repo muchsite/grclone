@@ -1,0 +1,97 @@
+@use "../App.scss" as *;
+.comp_testimonials_containter {
+  text-align: center;
+  overflow: hidden;
+  max-width: 100%;
+  position: relative;
+  .testimonial_cont {
+    position: relative;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+    @include breack_down(large) {
+      padding: 0 0 0 2.5rem;
+    }
+    width: fit-content;
+    padding: 0 0 0 3rem;
+    transition: 0.5s ease-in-out;
+    .testimonial_item {
+      width: 20vw;
+      @include breack_down(large) {
+        width: 40vw;
+      }
+      @include breack_down(medium) {
+        width: 80vw;
+      }
+      background-color: #e3f7d0;
+      box-shadow: -10px 10px $mainBlue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // justify-content: space-between;
+      gap: 2rem;
+      padding: 1rem;
+      border-radius: 10px;
+      .test_desc {
+        color: #4a4a4a;
+        margin-bottom: 20px;
+      }
+      .testimonial_image_cont {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+        img {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 50%;
+          margin-bottom: 2rem;
+        }
+      }
+      .testimonial_ifo {
+        display: flex;
+        flex-direction: column;
+        h4 {
+          font-weight: 500;
+          margin-bottom: 10px;
+          font-size: 22px;
+          color: #ff9933;
+        }
+        p {
+          color: #4a4a4a;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}
+.test_btn_cont {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.test_left {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  filter: invert(38%) sepia(97%) saturate(1762%) hue-rotate(209deg)
+    brightness(95%) contrast(103%);
+  transition: 0.4s;
+  &:hover {
+    filter: invert(88%) sepia(20%) saturate(1365%) hue-rotate(94deg)
+      brightness(99%) contrast(94%);
+  }
+}
+.test_right {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  filter: invert(38%) sepia(97%) saturate(1762%) hue-rotate(209deg)
+    brightness(95%) contrast(103%);
+  transition: 0.4s;
+  &:hover {
+    filter: invert(88%) sepia(20%) saturate(1365%) hue-rotate(94deg)
+      brightness(99%) contrast(94%);
+  }
+}
