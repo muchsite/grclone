@@ -1,4 +1,5 @@
 {
+  "homepage": "https://muchsite.github.io/grclone",
   "name": "jobten",
   "version": "0.1.0",
   "private": true,
@@ -24,11 +25,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sync" : "aws s3 --profile 'rohit-mac' --region 'ap-south-1' sync ./build 's3://growingseed-frontend'",
-    "invalidate" : "aws cloudfront --profile 'rohit-mac' --region 'ap-south-1' create-invalidation --distribution-id E2HJNUBZZFTG4C --paths '/*'"
+    "sync": "aws s3 --profile 'rohit-mac' --region 'ap-south-1' sync ./build 's3://growingseed-frontend'",
+    "invalidate": "aws cloudfront --profile 'rohit-mac' --region 'ap-south-1' create-invalidation --distribution-id E2HJNUBZZFTG4C --paths '/*'"
   },
   "eslintConfig": {
     "extends": [

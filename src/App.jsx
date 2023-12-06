@@ -48,7 +48,7 @@ const Terms = lazy(() => import("./pages/Privacy/Terms"));
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <NavBar />
         <Suspense fallback={<LoadnigMain />}>
           <Routes>
@@ -73,7 +73,7 @@ function App() {
           </Routes>
         </Suspense>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
