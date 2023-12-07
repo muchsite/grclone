@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/grclone/static/css/main.89ea5604.css",
-    "main.js": "/grclone/static/js/main.87c5cad5.js",
+    "main.js": "/grclone/static/js/main.c060ca02.js",
     "static/css/618.db7912d0.chunk.css": "/grclone/static/css/618.db7912d0.chunk.css",
     "static/js/618.505b02e0.chunk.js": "/grclone/static/js/618.505b02e0.chunk.js",
     "static/css/473.1785a74e.chunk.css": "/grclone/static/css/473.1785a74e.chunk.css",
@@ -85,7 +85,7 @@
     "static/media/yes.svg": "/grclone/static/media/yes.4ffc97f12c14bc4bb5cbc9f916b61887.svg",
     "static/media/arrow.svg": "/grclone/static/media/arrow.1e0b9258513d74f36bdfe4603bd7a0c5.svg",
     "main.89ea5604.css.map": "/grclone/static/css/main.89ea5604.css.map",
-    "main.87c5cad5.js.map": "/grclone/static/js/main.87c5cad5.js.map",
+    "main.c060ca02.js.map": "/grclone/static/js/main.c060ca02.js.map",
     "618.db7912d0.chunk.css.map": "/grclone/static/css/618.db7912d0.chunk.css.map",
     "618.505b02e0.chunk.js.map": "/grclone/static/js/618.505b02e0.chunk.js.map",
     "473.1785a74e.chunk.css.map": "/grclone/static/css/473.1785a74e.chunk.css.map",
@@ -123,6 +123,6 @@
   },
   "entrypoints": [
     "static/css/main.89ea5604.css",
-    "static/js/main.87c5cad5.js"
+    "static/js/main.c060ca02.js"
   ]
 }
