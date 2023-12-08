@@ -1,6 +1,7 @@
 @use "../App.scss" as *;
 .webinarL_container {
   margin-top: 10rem;
+  // min-height: 200vh;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -153,13 +154,52 @@
   }
 }
 .l_webinar_text {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  padding: 2rem;
+  padding: 4rem 2rem;
 
+  width: 100%;
+  @include breack_down(large) {
+    padding: 0.5rem;
+  }
+  h4 {
+    margin-bottom: 1rem;
+  }
+  h2 {
+    margin-bottom: 1rem;
+  }
+  p {
+    color: rgb(0, 0, 0);
+    margin: 1rem 0;
+    line-height: 20px;
+  }
+  h1,
+  h3,
+  h2,
+  h4 {
+    margin: 1rem 0;
+    display: block;
+    color: $mainBlue;
+    background-color: rgba(164, 241, 255, 0.308);
+    padding: 1rem;
+  }
+
+  ul {
+    margin-left: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: black;
+    @include breack_down(large) {
+      margin-left: 1.5rem;
+    }
+    li {
+      margin-top: 10px;
+    }
+  }
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
   @include breack_down(medium) {
-    padding: 0;
+    padding: 2rem 0;
     gap: 1rem;
   }
 }
@@ -282,6 +322,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   @include breack_down(medium) {
     // flex-direction: column-reverse;
     margin-bottom: 4rem;
@@ -291,9 +332,14 @@
   width: 100%;
   .webinar_img_main {
     width: 100%;
+    @include breack_up(medium) {
+      height: 70vh;
+      object-fit: cover;
+    }
   }
-  @include breack_up(medium) {
-    min-height: 80vh;
+  @include breack_down(medium) {
+    object-fit: cover;
+    height: 30vh;
   }
 }
 

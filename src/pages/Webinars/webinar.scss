@@ -613,3 +613,46 @@
     gap: 2rem;
   }
 }
+.html_text_webinar {
+  width: 100%;
+  @include breack_down(large) {
+    padding: 0.5rem;
+  }
+  // h4 {
+  //   margin-bottom: 1rem;
+  // }
+  // h2 {
+  //   margin-bottom: 1rem;
+  // }
+  p {
+    color: rgb(0, 0, 0);
+    margin: 1rem 0;
+    line-height: 20px;
+  }
+  h3,
+  h2,
+  h1 {
+    color: $mainBlue;
+    margin: 1rem 0;
+    @include breack_down(medium) {
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+  }
+  ul {
+    margin-left: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: black;
+    @include breack_down(large) {
+      margin-left: 1.5rem;
+    }
+    li {
+      margin: 10px 0;
+    }
+  }
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}

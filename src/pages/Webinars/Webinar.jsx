@@ -163,28 +163,9 @@ const Webinar = () => {
           <div className="webinar_sticky">
             <div className="webinar_info">
               <div className="webinar_about">
-                <div className="webinar_desc_title">About this Session</div>
                 <div
                   className="html_text_webinar"
                   dangerouslySetInnerHTML={{ __html: webinarDetail }}
-                ></div>
-              </div>
-              <div className="webinar_about">
-                <div className="webinar_desc_title">
-                  What You Will Learn From This Session
-                </div>
-                <div
-                  className="html_text_webinar"
-                  dangerouslySetInnerHTML={{ __html: gain }}
-                ></div>
-              </div>
-              <div className="webinar_about">
-                <div className="webinar_desc_title">
-                  About GrowingSeed Technologies
-                </div>
-                <div
-                  className="html_text_webinar"
-                  dangerouslySetInnerHTML={{ __html: speaker }}
                 ></div>
               </div>
             </div>

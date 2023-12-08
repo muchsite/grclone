@@ -57,10 +57,12 @@ footer {
     width: 80%;
     text-align: center;
   }
-  p {
+  p,
+  a {
     transition: 0.3s;
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
     &:hover {
       color: $mainGreen;
     }

@@ -188,10 +188,7 @@ const CourseL = () => {
       ) : (
         <>
           <div className="l_course_container">
-            <div
-              className={`l_courses_sticky setVisible`}
-              onClick={scrollToRegister}
-            >
+            <div className={`l_courses_sticky`} onClick={scrollToRegister}>
               Resgister Now!
             </div>
             <div
@@ -325,7 +322,7 @@ const CourseL = () => {
                       <Link
                         ref={recRef}
                         className="courses_rec_item"
-                        to={`/courses/${item.slug}`}
+                        to={`/course/${item.slug}`}
                         key={index}
                       >
                         <div>
