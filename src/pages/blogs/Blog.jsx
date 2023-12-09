@@ -150,11 +150,11 @@ const Blog = () => {
         </div>
       )}
       {!isLoading2 && (
-        <div className="recomended_courses">
+        <div className="recomended_blogs">
           <h2>Recomended Blogs</h2>
           <div className="rec_relative_cont">
             <div
-              className="courses_rec_cont"
+              className="blogs_rec_cont"
               style={{
                 left: `calc((${recWidth}px + 5rem) * -1 * ${recCount})`,
               }}

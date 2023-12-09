@@ -200,7 +200,7 @@
   }
 }
 
-.recomended_courses {
+.recomended_blogs {
   width: 100%;
   overflow: hidden;
   gap: 2rem;
@@ -232,14 +232,14 @@
         left: 10vw;
       }
     }
-    .courses_rec_cont {
+    .blogs_rec_cont {
       display: flex;
       gap: 5rem;
       position: relative;
       transition: 1s;
       width: fit-content;
       .courses_rec_item {
-        background-color: #fff;
+        // background-color: #fff;
         text-decoration: none;
         border-radius: 5px;
         width: 25vw;
@@ -287,14 +287,14 @@
       gap: 2rem;
     }
   }
-  .courses_rec_cont {
+  .blogs_rec_cont {
     display: flex;
     gap: 5rem;
     position: relative;
     transition: 1s;
     width: fit-content;
     .courses_rec_item {
-      background-color: #fff;
+      box-shadow: 0 0 20px #4275f53a;
       text-decoration: none;
       border-radius: 5px;
       width: 25vw;
