@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BaseURL, scrollTP } from "../home/Home";
 import LoadnigMain from "../../loading/LoadnigMain";
 import Comments from "../../comments/Comments";
 import commen from "../../images/commen.svg";
 import like from "../../images/like.svg";
 import DOMPurify from "dompurify";
+import leftimg from "../../images/left.svg";
+import right from "../../images/right.svg";
 import "./blogs.scss";
 const Blog = () => {
   const { blogId } = useParams();
@@ -16,7 +18,12 @@ const Blog = () => {
   const [likeCount, setLikeCount] = useState(0);
   const [comment, setComment] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoading2, setIsLoading2] = useState(true);
   const [open_comments, setOpne_comments] = useState(false);
+  const [blogs, setBlogs] = useState([]);
+  const [recCount, setRecCount] = useState(0);
+  const [recWidth, setRecWidth] = useState(0);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,11 +40,25 @@ const Blog = () => {
       }
     };
     fetchData();
+    const fetchDataS = async () => {
+      setIsLoading(true);
+      try {
+        const res = await axios.get(`${BaseURL}/blog/list/`);
+
+        setBlogs(res.data.blogs);
+        setIsLoading2(false);
+        scrollTP();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDataS();
     const scroll = () => {
       window.scrollTo(0, 0);
     };
     scroll();
-  }, []);
+  }, [blogId]);
+
   const handleLike = async () => {
     if (!liked) {
       try {
@@ -47,6 +68,34 @@ const Blog = () => {
       } catch (error) {
         console.log(error);
       }
+    }
+  };
+  const recRef = useRef();
+  useEffect(() => {
+    if (recRef.current) {
+      const width = recRef.current.getBoundingClientRect().width;
+      setRecWidth(width);
+    }
+  }, [blogs]);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const handleRec = (direction) => {
+    if (viewportWidth <= 600) {
+      if (direction > 0 && recCount <= blogs.length - 2) {
+        setRecCount(recCount + 1);
+      }
+    }
+    if (viewportWidth < 1163 && viewportWidth > 600) {
+      if (direction > 0 && recCount <= blogs.length - 3) {
+        setRecCount(recCount + 1);
+      }
+    }
+    if (viewportWidth > 1163) {
+      if (direction > 0 && recCount <= blogs.length - 4) {
+        setRecCount(recCount + 1);
+      }
+    }
+    if (direction < 0 && recCount > 0) {
+      setRecCount(recCount - 1);
     }
   };
 
@@ -97,6 +146,49 @@ const Blog = () => {
                 <div dangerouslySetInnerHTML={{ __html: blog1 }}></div>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+      {!isLoading2 && (
+        <div className="recomended_courses">
+          <h2>Recomended Blogs</h2>
+          <div className="rec_relative_cont">
+            <div
+              className="courses_rec_cont"
+              style={{
+                left: `calc((${recWidth}px + 5rem) * -1 * ${recCount})`,
+              }}
+            >
+              {blogs?.map((item, index) => (
+                <Link
+                  ref={recRef}
+                  className="courses_rec_item"
+                  to={`/blogs/${item.slug}`}
+                  key={index}
+                >
+                  <div>
+                    <img src={`${item.image}`} alt="Python Image" />
+                    <div className="course_rec_text">
+                      <h3>{item.title}</h3>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="rec_btns">
+            <img
+              src={leftimg}
+              alt=""
+              className="test_left"
+              onClick={() => handleRec(-1)}
+            />
+            <img
+              src={right}
+              alt=""
+              className="test_right"
+              onClick={() => handleRec(1)}
+            />
           </div>
         </div>
       )}

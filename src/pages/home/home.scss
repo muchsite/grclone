@@ -186,7 +186,8 @@
       border: 1px solid rgba(255, 255, 255, 0.3);
       bottom: -100%;
       h3 {
-        color: #fff;
+        color: $mainBlue;
+        text-align: center;
       }
     }
     .blogs_hover_active {

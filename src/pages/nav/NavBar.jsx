@@ -14,6 +14,9 @@ import g from "../../images/G.svg";
 import wa from "../../images/wa.svg";
 
 function NavBar() {
+  const handlePhoneClick = () => {
+    window.location.href = `tel:+91 99101 67228`;
+  };
   const [open, setopen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(false);
   const [marginBottom, setMarginBottom] = useState(0);
@@ -76,7 +79,7 @@ function NavBar() {
             <img src={what} alt="" />
             +91 965-037-4657
           </div>
-          <div className="nums_cont">
+          <div className="nums_cont" onClick={handlePhoneClick}>
             <img src={phone} alt="" />
             +91 991-016-7228
           </div>

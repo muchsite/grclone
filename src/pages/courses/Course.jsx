@@ -62,7 +62,6 @@ const Course = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`${BaseURL}/course/${coursesId}`);
-
         setBatch(res.data.batches);
         setCourse(res.data.course);
         setCourse2(res.data.recommended_course);
@@ -331,7 +330,7 @@ const Course = () => {
               <Link
                 ref={recRef}
                 className="courses_rec_item"
-                to={`/courses/${item.slug}`}
+                to={`/course/${item.slug}`}
                 key={index}
               >
                 <div>

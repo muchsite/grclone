@@ -8,7 +8,7 @@
   align-items: center;
   height: fit-content;
   @include breack_down(medium) {
-    margin-top: 7rem;
+    margin-top: 8rem;
   }
 }
 .webinar_img {
@@ -333,13 +333,13 @@
   .webinar_img_main {
     width: 100%;
     @include breack_up(medium) {
-      height: 70vh;
+      // height: 70vh;
       object-fit: cover;
     }
   }
   @include breack_down(medium) {
     object-fit: cover;
-    height: 30vh;
+    // height: 30vh;
   }
 }
 
@@ -361,7 +361,7 @@
   }
   @include breack_down(medium) {
     width: 100vw;
-    margin: 1rem 0;
+    margin: 0;
     padding: 2rem 1rem;
     box-shadow: 0px 0px 0px #acb2d1;
   }
