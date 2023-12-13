@@ -1,12 +1,14 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BaseURL, scrollTP } from "../pages/home/Home";
 import LoadnigMain from "../loading/LoadnigMain";
-
+import leftimg from "../images/left.svg";
+import right from "../images/right.svg";
 import { useRef } from "react";
 import g from "../images/G.svg";
+import lwb from "../images/lwb.svg";
 import people from "../images/people.svg";
 import Loading from "../loading/Loading";
 import yes from "../images/yes.svg";
@@ -26,8 +28,11 @@ const WebinarL = () => {
   const [successReg, setSuccessreg] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
   const [webinarDetail, setWebinarDetail] = useState(null);
-  const [gain, setgain] = useState(null);
-  const [speaker, setSpeaker] = useState(null);
+  const [isLoading2, setIsLoading2] = useState(true);
+  const [webinars, setWebinars] = useState(true);
+  const [recCount, setRecCount] = useState(0);
+  const [recWidth, setRecWidth] = useState(0);
+
   useEffect(() => {
     const fetchWebinar = async () => {
       try {
@@ -35,10 +40,7 @@ const WebinarL = () => {
         setWebinarData(res.data);
         setWebinar(res.data.id);
         const detail = DOMPurify.sanitize(res.data.detail);
-        const gain = DOMPurify.sanitize(res.data.gain_from);
-        const speaker = DOMPurify.sanitize(res.data.about_speaker);
-        setgain(gain);
-        setSpeaker(speaker);
+
         setWebinarDetail(detail);
         setIsLoading(false);
         scrollTP();
@@ -47,6 +49,18 @@ const WebinarL = () => {
       }
     };
     fetchWebinar();
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `${BaseURL}/webinar/list/?is_active=${true}`
+        );
+        setIsLoading2(false);
+        setWebinars(res.data.webinars);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
   }, []);
   const formRef = useRef();
   const handleScroll = () => {
@@ -59,7 +73,7 @@ const WebinarL = () => {
       console.log("errrr");
     }
   };
-
+  console.log(webinars);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const states = { name, email, wh_num, webinar };
@@ -84,9 +98,100 @@ const WebinarL = () => {
       }, 3000);
     }
   };
+  const recRef = useRef();
+  useEffect(() => {
+    if (recRef.current) {
+      const width = recRef.current.getBoundingClientRect().width;
+      setRecWidth(width);
+    }
+  }, [webinars]);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const handleRec = (direction) => {
+    if (viewportWidth <= 600) {
+      if (direction > 0 && recCount <= webinars.length - 2) {
+        setRecCount(recCount + 1);
+      }
+    }
+    if (viewportWidth < 1163 && viewportWidth > 600) {
+      if (direction > 0 && recCount <= webinars.length - 3) {
+        setRecCount(recCount + 1);
+      }
+    }
+    if (viewportWidth > 1163) {
+      if (direction > 0 && recCount <= webinars.length - 4) {
+        setRecCount(recCount + 1);
+      }
+    }
+    if (direction < 0 && recCount > 0) {
+      setRecCount(recCount - 1);
+    }
+  };
 
   return (
     <>
+      <div className="webinar_front">
+        <img src={lwb} alt="" className="lwb" />
+        <form ref={formRef} className="wl_form" onSubmit={handleSubmit}>
+          <div className="wl_form_head">
+            <h2>Register Now!</h2>
+            <img src={g} alt="" />
+          </div>
+          <div className="wl_input_div">
+            <label htmlFor="">Name:</label>
+            <input
+              type="text"
+              name=""
+              id=""
+              required
+              value={name}
+              onChange={(e) => setName(e.currentTarget.value)}
+            />
+          </div>
+          <div className="wl_input_div wl_email">
+            <label htmlFor="">Email:</label>
+            <input
+              type="text"
+              name=""
+              id=""
+              required
+              value={email}
+              onChange={(e) => setEmail(e.currentTarget.value)}
+              className={`${"email" in errorMessage && "outline_red"}`}
+            />
+            {"email" in errorMessage && (
+              <p className="l_webinar_error_message">
+                Pleas provide valid email!
+              </p>
+            )}
+          </div>
+          <div className="wl_input_div wl_email">
+            <label htmlFor="">Phone:</label>
+            <input
+              type="number"
+              name=""
+              id=""
+              required
+              value={wh_num}
+              onChange={(e) => setWh_Num(e.currentTarget.value)}
+              className={`${"wh_num" in errorMessage && "outline_red"}`}
+            />
+            {"wh_num" in errorMessage && (
+              <p className="l_webinar_error_message">{errorMessage.wh_num}</p>
+            )}
+          </div>
+          <div className="wl_reg_btn_cont">
+            <div className="wl_btn_container">
+              <button className="wl_reg_btn">Register</button>
+              {showLoading && <Loading />}
+              {successReg && <img src={yes} alt="" />}
+            </div>
+            <div className="buton_icon">
+              <img src={people} alt="" />
+              <p>{webinarData?.registration_count} Have registered</p>
+            </div>
+          </div>
+        </form>
+      </div>
       {isLoading ? (
         <LoadnigMain />
       ) : (
@@ -166,71 +271,55 @@ const WebinarL = () => {
               </div>
             </div>
           </div>
-          <form ref={formRef} className="wl_form" onSubmit={handleSubmit}>
-            <div className="wl_form_head">
-              <h2>Register Now!</h2>
-              <img src={g} alt="" />
-            </div>
-            <div className="wl_input_div">
-              <label htmlFor="">Name:</label>
-              <input
-                type="text"
-                name=""
-                id=""
-                required
-                value={name}
-                onChange={(e) => setName(e.currentTarget.value)}
-              />
-            </div>
-            <div className="wl_input_div wl_email">
-              <label htmlFor="">Email:</label>
-              <input
-                type="text"
-                name=""
-                id=""
-                required
-                value={email}
-                onChange={(e) => setEmail(e.currentTarget.value)}
-                className={`${"email" in errorMessage && "outline_red"}`}
-              />
-              {"email" in errorMessage && (
-                <p className="l_webinar_error_message">
-                  Pleas provide valid email!
-                </p>
-              )}
-            </div>
-            <div className="wl_input_div wl_email">
-              <label htmlFor="">Phone:</label>
-              <input
-                type="number"
-                name=""
-                id=""
-                required
-                value={wh_num}
-                onChange={(e) => setWh_Num(e.currentTarget.value)}
-                className={`${"wh_num" in errorMessage && "outline_red"}`}
-              />
-              {"wh_num" in errorMessage && (
-                <p className="l_webinar_error_message">{errorMessage.wh_num}</p>
-              )}
-            </div>
-            <div className="wl_reg_btn_cont">
-              <div className="wl_btn_container">
-                <button className="wl_reg_btn">Register</button>
-                {showLoading && <Loading />}
-                {successReg && <img src={yes} alt="" />}
-              </div>
-              <div className="buton_icon">
-                <img src={people} alt="" />
-                <p>{webinarData.registration_count} Have registered</p>
-              </div>
-            </div>
-          </form>
+
           <div className="l_webinar_text">
             <div
               className="html_text_webinar"
               dangerouslySetInnerHTML={{ __html: webinarDetail }}
             ></div>
+          </div>
+        </div>
+      )}
+      {!isLoading2 && (
+        <div className="recomended_blogs">
+          <h2>Recomended Webinars</h2>
+          <div className="rec_relative_cont">
+            <div
+              className="blogs_rec_cont"
+              style={{
+                left: `calc((${recWidth}px + 5rem) * -1 * ${recCount})`,
+              }}
+            >
+              {webinars?.map((item, index) => (
+                <Link
+                  ref={recRef}
+                  className="courses_rec_item"
+                  to={`/webinar/${item.slug}`}
+                  key={index}
+                >
+                  <div>
+                    <img src={`${item.img}`} alt="Python Image" />
+                    <div className="course_rec_text">
+                      <h3>{item.title}</h3>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="rec_btns">
+            <img
+              src={leftimg}
+              alt=""
+              className="test_left"
+              onClick={() => handleRec(-1)}
+            />
+            <img
+              src={right}
+              alt=""
+              className="test_right"
+              onClick={() => handleRec(1)}
+            />
           </div>
         </div>
       )}

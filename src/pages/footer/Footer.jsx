@@ -6,14 +6,6 @@ import link from "../../images/link.svg";
 import G from "../../images/G.svg";
 import "./footer.scss";
 const Footer = () => {
-  const location = useLocation();
-  const hideNavBar =
-    location.pathname.startsWith("/landing") && location.pathname !== "/";
-  const [open, setOpen] = useState(false);
-
-  if (hideNavBar) {
-    return null;
-  }
   const handlePhoneClick = () => {
     window.location.href = `tel:+91 99101 67228`;
   };

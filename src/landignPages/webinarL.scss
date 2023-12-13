@@ -1,14 +1,170 @@
 @use "../App.scss" as *;
 .webinarL_container {
-  margin-top: 10rem;
   // min-height: 200vh;
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
   height: fit-content;
+  margin-top: 3rem;
   @include breack_down(medium) {
-    margin-top: 8rem;
+    margin-top: 0rem;
+  }
+}
+.webinar_front {
+  margin-top: 10rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 80vh;
+  padding: 0 4rem;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  @include breack_down(large) {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .lwb {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    width: fit-content;
+    height: 50vh;
+    @include breack_down(large) {
+      display: none !important;
+    }
+  }
+  .wl_form {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 10px;
+    width: fit-content;
+    // float: right;
+    @include breack_down(large) {
+      width: 90%;
+      gap: 2rem;
+      padding: 1rem;
+      margin: 2rem 0 5rem 0;
+    }
+    .wl_form_head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $mainBlue;
+      @include breack_down(large) {
+        font-size: 12px;
+      }
+      img {
+        width: 7rem;
+        @include breack_down(medium) {
+          width: 5rem;
+        }
+      }
+    }
+    .wl_input_div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5rem;
+      color: $mainBlue;
+      @include breack_down(medium) {
+        gap: 2rem;
+      }
+      input {
+        border: none;
+        padding: 1rem;
+        width: 23rem;
+        border-radius: 5px;
+        color: $mainBlue;
+        outline: 1px solid $mainBlue;
+        @include breack_down(medium) {
+          width: 13rem;
+          padding: 0.5rem;
+          flex-shrink: 0;
+        }
+      }
+    }
+    .wl_email {
+      position: relative;
+      .l_webinar_error_message {
+        position: absolute;
+        right: 0;
+        bottom: -1.4rem;
+        color: red;
+      }
+    }
+    .wl_reg_btn_cont {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $mainRed;
+      .wl_btn_container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        @include breack_down(medium) {
+          gap: 0.5rem;
+        }
+        img {
+          width: 2.5rem;
+          filter: invert(88%) sepia(20%) saturate(1365%) hue-rotate(94deg)
+            brightness(99%) contrast(94%);
+        }
+        .wl_reg_btn {
+          background-color: $mainRed;
+          color: #fff;
+          border: none;
+          padding: 1rem 2rem;
+          border-radius: 10px;
+          transition: 0.5s;
+          width: fit-content;
+          cursor: pointer;
+          // margin-top: 2rem;
+          &:hover {
+            background-color: #fff;
+            color: $mainRed;
+            outline: 1px solid $mainRed;
+          }
+          @include breack_down(medium) {
+            padding: 0.7rem 1rem;
+          }
+        }
+      }
+      .buton_icon {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: $mainRed;
+        cursor: pointer;
+        transition: 0.4s;
+        @include breack_down(medium) {
+          font-size: 12px;
+          gap: 0.2rem;
+        }
+        &:hover {
+          opacity: 0.7;
+        }
+        img {
+          width: 2rem;
+          height: 2rem;
+          filter: invert(27%) sepia(92%) saturate(5458%) hue-rotate(346deg)
+            brightness(92%) contrast(103%);
+          @include breack_down(medium) {
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+        }
+      }
+    }
   }
 }
 .webinar_img {
@@ -36,123 +192,7 @@
     background-color: rgb(2, 18, 156);
   }
 }
-.wl_form {
-  margin: 5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  background-color: #fff;
-  padding: 3rem;
-  border-radius: 10px;
-  @include breack_down(large) {
-    width: 90%;
-    gap: 2rem;
-    padding: 1rem;
-    margin: 2rem 0 5rem 0;
-  }
-  .wl_form_head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: $mainBlue;
-    @include breack_down(large) {
-      font-size: 12px;
-    }
-    img {
-      width: 7rem;
-      @include breack_down(medium) {
-        width: 5rem;
-      }
-    }
-  }
-  .wl_input_div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    color: $mainBlue;
-    input {
-      border: none;
-      padding: 1rem;
-      width: 23rem;
-      border-radius: 5px;
-      color: $mainBlue;
-      outline: 1px solid $mainBlue;
-    }
-  }
-  .wl_email {
-    position: relative;
-    .l_webinar_error_message {
-      position: absolute;
-      right: 0;
-      bottom: -1.4rem;
-      color: red;
-    }
-  }
-  .wl_reg_btn_cont {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: $mainRed;
-    .wl_btn_container {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      @include breack_down(medium) {
-        gap: 0.5rem;
-      }
-      img {
-        width: 2.5rem;
-        filter: invert(88%) sepia(20%) saturate(1365%) hue-rotate(94deg)
-          brightness(99%) contrast(94%);
-      }
-      .wl_reg_btn {
-        background-color: $mainRed;
-        color: #fff;
-        border: none;
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        transition: 0.5s;
-        width: fit-content;
-        cursor: pointer;
-        // margin-top: 2rem;
-        &:hover {
-          background-color: #fff;
-          color: $mainRed;
-          outline: 1px solid $mainRed;
-        }
-        @include breack_down(medium) {
-          padding: 0.7rem 1rem;
-        }
-      }
-    }
-    .buton_icon {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      color: $mainRed;
-      cursor: pointer;
-      transition: 0.4s;
-      @include breack_down(medium) {
-        font-size: 12px;
-        gap: 0.2rem;
-      }
-      &:hover {
-        opacity: 0.7;
-      }
-      img {
-        width: 2rem;
-        height: 2rem;
-        filter: invert(27%) sepia(92%) saturate(5458%) hue-rotate(346deg)
-          brightness(92%) contrast(103%);
-        @include breack_down(medium) {
-          width: 1.2rem;
-          height: 1.2rem;
-        }
-      }
-    }
-  }
-}
+
 .l_webinar_text {
   padding: 4rem 2rem;
 
@@ -610,6 +650,148 @@
     width: fit-content;
     .courses_rec_item {
       background-color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      width: 25vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      img {
+        width: 100%;
+        height: 12rem;
+      }
+      color: $mainBlue;
+      @include breack_down(large) {
+        width: 40vw;
+      }
+      @include breack_down(medium) {
+        width: 80vw;
+      }
+      .rec_yeses {
+        .rec_yes {
+          display: flex;
+          img {
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+        }
+      }
+      .course_rec_text {
+        h3 {
+          text-align: center;
+          margin: 1rem 0;
+        }
+      }
+      img {
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+      }
+    }
+  }
+
+  .rec_btns {
+    width: 100%;
+    justify-content: center;
+    margin: 3rem 0;
+    display: flex;
+    gap: 2rem;
+  }
+}
+.recomended_blogs {
+  width: 100%;
+  overflow: hidden;
+  gap: 2rem;
+  h2 {
+    margin: 3rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  .rec_relative_cont {
+    position: relative;
+    left: 5vw;
+    @include breack_down(medium) {
+      left: 10vw;
+    }
+  }
+  .recomended_courses {
+    width: 100%;
+    overflow: hidden;
+    gap: 2rem;
+    h2 {
+      margin: 3rem 0;
+      width: 100%;
+      text-align: center;
+    }
+    .rec_relative_cont {
+      position: relative;
+      left: 5vw;
+      @include breack_down(medium) {
+        left: 10vw;
+      }
+    }
+    .blogs_rec_cont {
+      display: flex;
+      gap: 5rem;
+      position: relative;
+      transition: 1s;
+      width: fit-content;
+      .courses_rec_item {
+        // background-color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        width: 25vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        img {
+          width: 100%;
+          height: 12rem;
+        }
+        color: $mainBlue;
+        @include breack_down(large) {
+          width: 40vw;
+        }
+        @include breack_down(medium) {
+          width: 80vw;
+        }
+        .rec_yeses {
+          .rec_yes {
+            display: flex;
+            img {
+              width: 1.2rem;
+              height: 1.2rem;
+            }
+          }
+        }
+        .course_rec_text {
+          h3 {
+            text-align: center;
+            margin: 1rem 0;
+          }
+        }
+        img {
+          width: 100%;
+          border-radius: 5px 5px 0 0;
+        }
+      }
+    }
+
+    .rec_btns {
+      width: 100%;
+      justify-content: center;
+      margin: 3rem 0;
+      display: flex;
+      gap: 2rem;
+    }
+  }
+  .blogs_rec_cont {
+    display: flex;
+    gap: 5rem;
+    position: relative;
+    transition: 1s;
+    width: fit-content;
+    .courses_rec_item {
+      box-shadow: 0 0 20px #4275f53a;
       text-decoration: none;
       border-radius: 5px;
       width: 25vw;
