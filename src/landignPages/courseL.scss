@@ -1,14 +1,75 @@
 @use "../App.scss" as *;
-
-.l_course_container {
-  padding: 12rem 0 0 0;
-  background-color: #fff;
+.clh {
+  min-height: 150vh;
+}
+.coursesL_hero {
+  display: flex;
+  margin-top: 12rem;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100vh - 12rem);
   @include breack_down(large) {
-    padding-top: 10rem;
+    margin-top: 10rem;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    gap: 48px;
   }
   @include breack_down(medium) {
     // padding-top: 8rem;
   }
+  img {
+    @include breack_down(large) {
+      width: 100%;
+    }
+  }
+  .clh_titel {
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 50vw;
+    @include breack_down(large) {
+      max-width: 100%;
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    h2 {
+      color: $mainBlue;
+      font-size: 90px;
+      @include breack_down(large) {
+        font-size: 40px;
+      }
+    }
+    p {
+      font-size: 18px;
+      @include breack_down(large) {
+        max-width: 100%;
+        font-size: 16px;
+      }
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 15px;
+      width: fit-content;
+      background-color: $mainBlue;
+      border: none;
+      outline: 1px solid $mainBlue;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        background-color: #fff;
+        color: $mainBlue;
+      }
+    }
+  }
+}
+.l_course_container {
+  background-color: #fff;
 }
 .l_courses_sticky {
   position: fixed;

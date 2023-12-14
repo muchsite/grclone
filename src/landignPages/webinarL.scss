@@ -1,4 +1,8 @@
 @use "../App.scss" as *;
+.clh {
+  min-height: 150vh;
+}
+
 .webinarL_container {
   // min-height: 200vh;
   display: flex;

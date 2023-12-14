@@ -73,7 +73,7 @@ const WebinarL = () => {
       console.log("errrr");
     }
   };
-  console.log(webinars);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const states = { name, email, wh_num, webinar };
@@ -128,7 +128,7 @@ const WebinarL = () => {
   };
 
   return (
-    <>
+    <div className="clh">
       <div className="webinar_front">
         <img src={lwb} alt="" className="lwb" />
         <form ref={formRef} className="wl_form" onSubmit={handleSubmit}>
@@ -323,7 +323,7 @@ const WebinarL = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

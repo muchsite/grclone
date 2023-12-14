@@ -12,6 +12,7 @@ import CheckRating from "../rating/CheckRating";
 import leftimg from "../images/left.svg";
 import right from "../images/right.svg";
 import logo from "../images/G.svg";
+import clw from "../images/clw.svg";
 import close from "../images/close.svg";
 import Loading from "../loading/Loading";
 
@@ -182,7 +183,18 @@ const CourseL = () => {
     }
   };
   return (
-    <>
+    <div className="clh">
+      <div className="coursesL_hero">
+        <div className="clh_titel">
+          <h2>Overcome legal abstacles to your success!</h2>
+          <p>
+            Law without obstacles for your success. Professional support to help
+            you overcome legal difficulties and achieve your goals.
+          </p>
+          <button onClick={scrollToRegister}>Book a free consultation</button>
+        </div>
+        <img src={clw} alt="" />
+      </div>
       {isLoading ? (
         <LoadnigMain />
       ) : (
@@ -370,7 +382,7 @@ const CourseL = () => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 
