@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/grclone/static/css/main.a3b8a9e8.css",
-    "main.js": "/grclone/static/js/main.24dfc58a.js",
+    "main.css": "/grclone/static/css/main.ad99f3ce.css",
+    "main.js": "/grclone/static/js/main.599fbe08.js",
     "static/css/473.2998b21b.chunk.css": "/grclone/static/css/473.2998b21b.chunk.css",
     "static/js/473.2e6cbbd7.chunk.js": "/grclone/static/js/473.2e6cbbd7.chunk.js",
     "static/css/759.dc608cf5.chunk.css": "/grclone/static/css/759.dc608cf5.chunk.css",
@@ -39,8 +39,8 @@
     "static/media/ma1.jpg": "/grclone/static/media/ma1.0f864895447086b79301.jpg",
     "static/media/e1.jpg": "/grclone/static/media/e1.a1a4c14f3a45e96398d6.jpg",
     "static/media/register.jpg": "/grclone/static/media/register.4dae92d690d2a67dde3a.jpg",
-    "static/media/clw.svg": "/grclone/static/media/clw.d5fe3f2883236dfbd40a4d3811220bfb.svg",
     "static/media/Hero.svg": "/grclone/static/media/Hero.1224d08ef5e6d9b768954cc3e16713e0.svg",
+    "static/media/clw.webp": "/grclone/static/media/clw.2ba55402197739d8cefc.webp",
     "static/media/e2.jpg": "/grclone/static/media/e2.450ce4af51f1c12aae9c.jpg",
     "static/media/G.svg": "/grclone/static/media/G.72e08d2321ed15dd41385985dbb8f145.svg",
     "static/media/career.svg": "/grclone/static/media/career.a6e311100e536fe0e28a9ecc04370e1a.svg",
@@ -78,8 +78,8 @@
     "static/media/check2.svg": "/grclone/static/media/check2.8cc5ee93091c4acce9ce3cef28aaf064.svg",
     "static/media/yes.svg": "/grclone/static/media/yes.4ffc97f12c14bc4bb5cbc9f916b61887.svg",
     "static/media/arrow.svg": "/grclone/static/media/arrow.1e0b9258513d74f36bdfe4603bd7a0c5.svg",
-    "main.a3b8a9e8.css.map": "/grclone/static/css/main.a3b8a9e8.css.map",
-    "main.24dfc58a.js.map": "/grclone/static/js/main.24dfc58a.js.map",
+    "main.ad99f3ce.css.map": "/grclone/static/css/main.ad99f3ce.css.map",
+    "main.599fbe08.js.map": "/grclone/static/js/main.599fbe08.js.map",
     "473.2998b21b.chunk.css.map": "/grclone/static/css/473.2998b21b.chunk.css.map",
     "473.2e6cbbd7.chunk.js.map": "/grclone/static/js/473.2e6cbbd7.chunk.js.map",
     "759.dc608cf5.chunk.css.map": "/grclone/static/css/759.dc608cf5.chunk.css.map",
@@ -108,7 +108,7 @@
     "776.8e766699.chunk.js.map": "/grclone/static/js/776.8e766699.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3b8a9e8.css",
-    "static/js/main.24dfc58a.js"
+    "static/css/main.ad99f3ce.css",
+    "static/js/main.599fbe08.js"
   ]
 }
