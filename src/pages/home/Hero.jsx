@@ -72,12 +72,6 @@ const Hero = () => {
           <br />
           <AnimateL arr={arr3} lclass={lclass} ind={b} />
         </h1>
-        <h2>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et dolorum
-          aliquid quia molestias, doloribus, ipsum laborum corrupti fugiat
-          dolores voluptatibus reprehenderit cumque cum autem recusandae
-          consequatur porro velit. Earum, autem.
-        </h2>
       </div>
       <div className="hero_form">
         <form onSubmit={handleHeroForm}>

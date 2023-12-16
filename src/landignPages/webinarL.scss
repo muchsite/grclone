@@ -30,7 +30,7 @@
   @include breack_down(large) {
     padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     height: auto;
   }
@@ -40,7 +40,8 @@
     width: fit-content;
     height: 50vh;
     @include breack_down(large) {
-      display: none !important;
+      // display: none !important;
+      margin-bottom: 5rem;
     }
   }
   .wl_form {
@@ -57,7 +58,7 @@
       width: 90%;
       gap: 2rem;
       padding: 1rem;
-      margin: 2rem 0 5rem 0;
+      margin: 2rem 0 2rem 0;
     }
     .wl_form_head {
       display: flex;
@@ -199,8 +200,11 @@
 
 .l_webinar_text {
   padding: 4rem 2rem;
-
   width: 100%;
+  @include breack_down(medium) {
+    padding: 0;
+    gap: 1rem;
+  }
   @include breack_down(large) {
     padding: 0.5rem;
   }
@@ -241,10 +245,6 @@
   img {
     width: 100% !important;
     height: auto !important;
-  }
-  @include breack_down(medium) {
-    padding: 2rem 0;
-    gap: 1rem;
   }
 }
 
@@ -369,21 +369,19 @@
   width: 100%;
   @include breack_down(medium) {
     // flex-direction: column-reverse;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 }
-.img_cont_web {
+.img_cont_web_L {
   width: 100%;
   .webinar_img_main {
     width: 100%;
     @include breack_up(medium) {
-      // height: 70vh;
       object-fit: cover;
     }
   }
   @include breack_down(medium) {
-    object-fit: cover;
-    // height: 30vh;
+    display: none !important;
   }
 }
 

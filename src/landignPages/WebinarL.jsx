@@ -29,7 +29,7 @@ const WebinarL = () => {
   const [showLoading, setShowLoading] = useState(false);
   const [webinarDetail, setWebinarDetail] = useState(null);
   const [isLoading2, setIsLoading2] = useState(true);
-  const [webinars, setWebinars] = useState(true);
+  const [webinars, setWebinars] = useState([]);
   const [recCount, setRecCount] = useState(0);
   const [recWidth, setRecWidth] = useState(0);
 
@@ -51,11 +51,10 @@ const WebinarL = () => {
     fetchWebinar();
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          `${BaseURL}/webinar/list/?is_active=${true}`
-        );
+        const res = await axios.get(`${BaseURL}/webinar/list/?is_active=true`);
         setIsLoading2(false);
-        setWebinars(res.data.webinars);
+        const arr = res.data.webinars.filter((item) => item.slug !== webinarId);
+        setWebinars(arr);
       } catch (error) {
         console.log(error);
       }
@@ -126,7 +125,9 @@ const WebinarL = () => {
       setRecCount(recCount - 1);
     }
   };
-
+  const reload = () => {
+    window.location.reload(true);
+  };
   return (
     <div className="clh">
       <div className="webinar_front">
@@ -231,7 +232,7 @@ const WebinarL = () => {
           </div>
 
           <div className="web_sec_cont">
-            <div className="img_cont_web">
+            <div className="img_cont_web_L">
               <img
                 src={webinarData?.img}
                 alt="Webinar Img"
@@ -280,9 +281,9 @@ const WebinarL = () => {
           </div>
         </div>
       )}
-      {!isLoading2 && (
+      {!isLoading2 && webinars.length > 0 && (
         <div className="recomended_blogs">
-          <h2>Recomended Webinars</h2>
+          <h2>Upcoming Webinars</h2>
           <div className="rec_relative_cont">
             <div
               className="blogs_rec_cont"
@@ -294,8 +295,9 @@ const WebinarL = () => {
                 <Link
                   ref={recRef}
                   className="courses_rec_item"
-                  to={`/webinar/${item.slug}`}
+                  to={`/landing/webinar/${item.slug}`}
                   key={index}
+                  onClick={() => reload()}
                 >
                   <div>
                     <img src={`${item.img}`} alt="Python Image" />

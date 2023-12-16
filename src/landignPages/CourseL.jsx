@@ -12,7 +12,7 @@ import CheckRating from "../rating/CheckRating";
 import leftimg from "../images/left.svg";
 import right from "../images/right.svg";
 import logo from "../images/G.svg";
-import clw from "../images/clw.svg";
+import clw from "../images/clw.webp";
 import close from "../images/close.svg";
 import Loading from "../loading/Loading";
 
@@ -186,12 +186,12 @@ const CourseL = () => {
     <div className="clh">
       <div className="coursesL_hero">
         <div className="clh_titel">
-          <h2>Overcome legal abstacles to your success!</h2>
+          <h2>Transform Your Future: with our Cutting-Edge IT Training</h2>
           <p>
-            Law without obstacles for your success. Professional support to help
-            you overcome legal difficulties and achieve your goals.
+            Empower your career with our comprehensive range of IT courses
+            designed for success.
           </p>
-          <button onClick={scrollToRegister}>Book a free consultation</button>
+          <button onClick={scrollToRegister}>Book a Free Consultation</button>
         </div>
         <img src={clw} alt="" />
       </div>
@@ -280,7 +280,7 @@ const CourseL = () => {
               </form>
             </div>
             <div className="l_course_hero">
-              <img src={course.img} alt="Course Hero" />
+              {/* <img src={course.img} alt="Course Hero" /> */}
             </div>
 
             <div className="single_course_l">
@@ -291,38 +291,9 @@ const CourseL = () => {
                 </div>
               </div>
               <Modules data={course?.module} landing={true} />
-              {/* <div className="landing_course_batches" ref={regRef}>
-                <h2>Register Now!</h2>
-                <div className="l_batch_container">
-                  {batch?.map((item, index) => {
-                    return (
-                      <div className="l_batch" key={index}>
-                        <div className="batch_start batch_info">
-                          <h4>Starting Date</h4>
-                          <p>{dateToSeq(item.start_date)}</p>
-                        </div>
-                        <div className="batch_days batch_info">
-                          <h4>Days</h4>
-                          <p>{item.days_of_week}</p>
-                        </div>
-                        <div className="batch_timings batch_info">
-                          <h4>Time</h4>
-                          <p>{item.timing} IST</p>
-                        </div>
-                        <button onClick={() => openReg(item.id)}>
-                          Register
-                        </button>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="contact_course">
-                  <p>Can't find the right batch or need career counseling?</p>
-                  <span onClick={openContact}>Connect with Us!</span>
-                </div>
-              </div> */}
+
               <div className="recomended_courses_L">
-                <h2>Recomended Courses</h2>
+                <h2>Recommended Courses</h2>
                 <div className="rec_relative_cont">
                   <div
                     className="courses_rec_cont"

@@ -143,9 +143,11 @@
   width: 100%;
   .webinar_img_main {
     width: 100%;
-  }
-  @include breack_up(medium) {
-    min-height: 80vh;
+    @include breack_up(medium) {
+      object-fit: cover;
+      width: 100%;
+      height: 70vh;
+    }
   }
 }
 

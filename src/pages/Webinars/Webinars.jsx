@@ -28,6 +28,7 @@ const Webinars = () => {
           `${BaseURL}/webinar/list/?is_active=${activeW}`
         );
         setWebinars(res.data);
+        console.log(res.data);
         setFaqData(res.data.faqs);
         setTesimonials(res.data.testimonials);
         setCourse2(res.data.recommended_course);

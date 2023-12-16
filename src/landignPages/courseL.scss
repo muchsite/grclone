@@ -14,13 +14,19 @@
     height: auto;
     width: 100%;
     gap: 48px;
+    margin-bottom: 5rem;
   }
   @include breack_down(medium) {
     // padding-top: 8rem;
   }
   img {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    width: 40vw;
+
     @include breack_down(large) {
-      width: 100%;
+      // display: none !important;
+      width: 80vw;
     }
   }
   .clh_titel {
@@ -28,7 +34,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    max-width: 50vw;
+    // max-width: 70vw;
     @include breack_down(large) {
       max-width: 100%;
       margin-left: 0;
@@ -39,7 +45,7 @@
     }
     h2 {
       color: $mainBlue;
-      font-size: 90px;
+      font-size: 80px;
       @include breack_down(large) {
         font-size: 40px;
       }
@@ -163,6 +169,7 @@
 }
 .course_html_text {
   padding: 1rem 4rem;
+  background-color: #e4fdfe;
   @include breack_down(large) {
     padding: 1rem;
   }
@@ -182,7 +189,7 @@
     margin: 1rem 0;
     display: block;
     color: $mainBlue;
-    background-color: rgba(164, 241, 255, 0.308);
+    background-color: rgba(209, 241, 247, 0.308);
     padding: 1rem;
   }
   ul {
@@ -266,8 +273,10 @@
 .course_title {
   text-align: center;
   display: block;
-  margin-top: 4rem;
-  margin-bottom: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  background-color: #e4fdfe;
+  font-size: 40px;
 }
 
 .l_courses_register_back {
