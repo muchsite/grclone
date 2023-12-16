@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: space-between;
   height: calc(100vh - 12rem);
+  padding: 0 4rem;
   @include breack_down(large) {
     margin-top: 10rem;
     flex-direction: column;
@@ -19,7 +20,7 @@
   @include breack_down(medium) {
     // padding-top: 8rem;
   }
-  img {
+  .course_hero_img_l {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     width: 40vw;
@@ -70,6 +71,116 @@
       &:hover {
         background-color: #fff;
         color: $mainBlue;
+      }
+    }
+  }
+}
+.l_courses_register {
+  // width: 50vw;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  padding: 2rem;
+  border-radius: 10px;
+  @include breack_down(large) {
+    padding: 1rem;
+    // width: 100%;
+  }
+  .l_form_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: 100%;
+    p {
+      color: $mainBlue;
+      font-size: 25px;
+      font-weight: 500;
+      @include breack_down(medium) {
+        font-size: 16px;
+      }
+    }
+    .l_form_header_logo {
+      width: 10rem;
+      @include breack_down(medium) {
+        width: 8rem;
+      }
+    }
+    .l_form_header_close {
+      width: 3rem;
+      cursor: pointer;
+      @include breack_down(medium) {
+        width: 2rem;
+      }
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    width: 40vw;
+    @include breack_down(large) {
+      width: 90vw;
+    }
+    .l_courses_inp_div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.2rem;
+      position: relative;
+      color: $mainBlue;
+      label {
+        font-weight: 500;
+      }
+      input {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 7px;
+        border: none;
+        outline: 1px solid $mainBlue;
+        width: 30vw;
+        @include breack_down(large) {
+          width: 60vw;
+          padding: 0.7rem;
+        }
+      }
+      p {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translateY(110%);
+        color: red;
+      }
+    }
+    .l_course_register {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      img {
+        width: 2.5rem;
+        filter: invert(88%) sepia(20%) saturate(1365%) hue-rotate(94deg)
+          brightness(99%) contrast(94%);
+      }
+      button {
+        width: fit-content;
+        padding: 0.7rem 1.2rem;
+        background-color: $mainRed;
+        border: none;
+        border-radius: 7px;
+        outline: 1px solid $mainRed;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.5s;
+        @include breack_down(large) {
+          padding: 0.5rem 1rem;
+        }
+        &:hover {
+          background-color: #fff;
+          color: $mainRed;
+        }
       }
     }
   }
@@ -277,121 +388,6 @@
   padding-bottom: 1rem;
   background-color: #e4fdfe;
   font-size: 40px;
-}
-
-.l_courses_register_back {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background-color: #084a4dbd;
-  top: 0;
-  z-index: 1000;
-  display: none;
-}
-
-.l_courses_register {
-  position: fixed;
-  width: 50vw;
-  height: 100vh;
-  z-index: 1001;
-  background-color: #fff;
-  top: 0;
-  right: -100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: 0.5s;
-  @include breack_down(large) {
-    width: 100%;
-    right: 0;
-    top: -120vh;
-  }
-  .l_form_header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    margin-bottom: 4rem;
-    .l_form_header_logo {
-      width: 10rem;
-      @include breack_down(medium) {
-        width: 8rem;
-      }
-    }
-    .l_form_header_close {
-      width: 3rem;
-      cursor: pointer;
-      @include breack_down(medium) {
-        width: 2rem;
-      }
-    }
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 2.2rem;
-    width: 80%;
-    @include breack_down(large) {
-      // gap: 1rem;
-    }
-    .l_courses_inp_div {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      position: relative;
-      input {
-        width: 100%;
-        padding: 1rem;
-        border-radius: 7px;
-        border: none;
-        outline: 1px solid $mainBlue;
-        @include breack_down(large) {
-          padding: 0.7rem;
-        }
-      }
-      p {
-        position: absolute;
-        bottom: 0;
-        transform: translateY(110%);
-        color: red;
-      }
-    }
-    .l_course_register {
-      display: flex;
-      gap: 3rem;
-      align-items: center;
-      img {
-        width: 2.5rem;
-        filter: invert(88%) sepia(20%) saturate(1365%) hue-rotate(94deg)
-          brightness(99%) contrast(94%);
-      }
-      button {
-        width: fit-content;
-        padding: 0.7rem 1.2rem;
-        background-color: $mainRed;
-        border: none;
-        border-radius: 7px;
-        outline: 1px solid $mainRed;
-        color: #fff;
-        cursor: pointer;
-        transition: 0.5s;
-        @include breack_down(large) {
-          padding: 0.5rem 1rem;
-        }
-        &:hover {
-          background-color: #fff;
-          color: $mainRed;
-        }
-      }
-    }
-  }
-}
-.l_course_open {
-  right: 0;
-  @include breack_down(large) {
-    top: 0;
-  }
 }
 
 .landing_course_batches {

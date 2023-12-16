@@ -28,7 +28,9 @@ const CourseL = () => {
   const [full_name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [wh_num, setWh_num] = useState();
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(
+    "Message from landing page of courses. Course name:" + courseId
+  );
   const [batchId, setBatchId] = useState(0);
   const [batch, setBatch] = useState([]);
   const [errorMessage, setErrorMessage] = useState({});
@@ -107,50 +109,23 @@ const CourseL = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    if (!contact) {
-      try {
-        const response = await axios.post(
-          `${BaseURL}/course-registration/`,
-          states
-        );
-        setSentMessage(true);
-        setErrorMessage({});
-        setName("");
-        setEmail("");
-        setWh_num("");
-        setMessage("");
-        setSending(false);
-        setRegisterOpen(false);
-        setTimeout(() => {
-          alert("Message has been sent!");
-          setSentMessage(false);
-        }, 1000);
-      } catch (error) {
-        setErrorMessage(error.response.data);
-        setSending(false);
-        console.log(error);
-      }
-    }
-    if (contact) {
-      try {
-        const response = await axios.post(`${BaseURL}/contacts/`, states2);
-        setSentMessage(true);
-        setRegisterOpen(false);
-        setErrorMessage({});
-        setName("");
-        setEmail("");
-        setWh_num("");
-        setMessage("");
-        setTimeout(() => {
-          alert("Message has been sent!");
-          setSentMessage(false);
-        }, 1000);
-        setSending(false);
-      } catch (error) {
-        console.log(error);
-        setErrorMessage(error.response.data);
-        setSending(false);
-      }
+    try {
+      const response = await axios.post(`${BaseURL}/contacts/`, states2);
+      setSentMessage(true);
+      setRegisterOpen(false);
+      setErrorMessage({});
+      setName("");
+      setEmail("");
+      setWh_num("");
+      setTimeout(() => {
+        alert("Message has been sent!");
+        setSentMessage(false);
+      }, 1000);
+      setSending(false);
+    } catch (error) {
+      console.log(error);
+      setErrorMessage(error.response.data);
+      setSending(false);
     }
   };
   const recRef = useRef();
@@ -177,7 +152,6 @@ const CourseL = () => {
         setRecCount(recCount + 1);
       }
     }
-
     if (direction < 0 && recCount > 0) {
       setRecCount(recCount - 1);
     }
@@ -185,15 +159,68 @@ const CourseL = () => {
   return (
     <div className="clh">
       <div className="coursesL_hero">
-        <div className="clh_titel">
-          <h2>Transform Your Future: with our Cutting-Edge IT Training</h2>
-          <p>
-            Empower your career with our comprehensive range of IT courses
-            designed for success.
-          </p>
-          <button onClick={scrollToRegister}>Book a Free Consultation</button>
+        <div className={`l_courses_register`}>
+          <div className="l_form_header">
+            <img src={logo} alt="" className="l_form_header_logo" />
+            <p>Register Now!</p>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="l_courses_inp_div">
+              <label htmlFor="">Name:</label>
+              <input
+                type="text"
+                name=""
+                id=""
+                value={full_name}
+                required
+                onChange={(e) => setName(e.currentTarget.value)}
+              />
+            </div>
+            <div className={`l_courses_inp_div `}>
+              <label htmlFor="">Email:</label>
+              <input
+                type="text"
+                name=""
+                id=""
+                value={email}
+                required
+                className={`${"email" in errorMessage && "outline_red"}`}
+                onChange={(e) => setEmail(e.currentTarget.value)}
+              />
+              {"email" in errorMessage && <p>{errorMessage.email}</p>}
+            </div>
+            <div className="l_courses_inp_div">
+              <label htmlFor="">Number:</label>
+              <input
+                type="number"
+                name=""
+                id=""
+                value={wh_num}
+                required
+                className={`${"wh_num" in errorMessage && "outline_red"}`}
+                onChange={(e) => setWh_num(e.currentTarget.value)}
+              />
+              {"wh_num" in errorMessage && <p>{errorMessage.wh_num}</p>}
+            </div>
+            {/* <div className="l_courses_inp_div">
+              <label htmlFor="">Message:</label>
+              <input
+                type="text"
+                name=""
+                id=""
+                value={message}
+                required
+                onChange={(e) => setMessage(e.currentTarget.value)}
+              />
+            </div> */}
+            <div className="l_course_register">
+              <button>Register</button>
+              {sending && <Loading />}
+              {sentMessage && <img src={yes} alt="" />}
+            </div>
+          </form>
         </div>
-        <img src={clw} alt="" />
+        <img src={clw} alt="" className="course_hero_img_l" />
       </div>
       {isLoading ? (
         <LoadnigMain />
@@ -203,82 +230,7 @@ const CourseL = () => {
             <div className={`l_courses_sticky`} onClick={scrollToRegister}>
               Resgister Now!
             </div>
-            <div
-              onClick={() => setRegisterOpen(false)}
-              className={`l_courses_register_back ${
-                registerOpen && "display_block"
-              }`}
-            ></div>
-            <div
-              className={`l_courses_register ${
-                registerOpen && "l_course_open"
-              }`}
-            >
-              <div className="l_form_header">
-                <img src={logo} alt="" className="l_form_header_logo" />
-                <img
-                  src={close}
-                  alt=""
-                  className="l_form_header_close"
-                  onClick={() => setRegisterOpen(false)}
-                />
-              </div>
-              <form onSubmit={handleSubmit}>
-                <div className="l_courses_inp_div">
-                  <label htmlFor="">Name:</label>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    value={full_name}
-                    required
-                    onChange={(e) => setName(e.currentTarget.value)}
-                  />
-                </div>
-                <div className={`l_courses_inp_div `}>
-                  <label htmlFor="">Email:</label>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    value={email}
-                    required
-                    className={`${"email" in errorMessage && "outline_red"}`}
-                    onChange={(e) => setEmail(e.currentTarget.value)}
-                  />
-                  {"email" in errorMessage && <p>{errorMessage.email}</p>}
-                </div>
-                <div className="l_courses_inp_div">
-                  <label htmlFor="">Number:</label>
-                  <input
-                    type="number"
-                    name=""
-                    id=""
-                    value={wh_num}
-                    required
-                    className={`${"wh_num" in errorMessage && "outline_red"}`}
-                    onChange={(e) => setWh_num(e.currentTarget.value)}
-                  />
-                  {"wh_num" in errorMessage && <p>{errorMessage.wh_num}</p>}
-                </div>
-                <div className="l_courses_inp_div">
-                  <label htmlFor="">Message:</label>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    value={message}
-                    required
-                    onChange={(e) => setMessage(e.currentTarget.value)}
-                  />
-                </div>
-                <div className="l_course_register">
-                  <button>Register</button>
-                  {sending && <Loading />}
-                  {sentMessage && <img src={yes} alt="" />}
-                </div>
-              </form>
-            </div>
+
             <div className="l_course_hero">
               {/* <img src={course.img} alt="Course Hero" /> */}
             </div>
