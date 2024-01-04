@@ -26,8 +26,15 @@
     width: 40vw;
 
     @include breack_down(large) {
-      // display: none !important;
-      width: 80vw;
+      display: none !important;
+    }
+  }
+  .course_hero_img_l_2 {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    width: 90vw;
+    @include breack_up(medium) {
+      display: none !important;
     }
   }
   .clh_titel {
@@ -277,10 +284,11 @@
   display: flex;
   flex-direction: column;
   gap: 6rem;
+  background-color: #e4fdfe;
 }
 .course_html_text {
   padding: 1rem 4rem;
-  background-color: #e4fdfe;
+
   @include breack_down(large) {
     padding: 1rem;
   }
@@ -300,7 +308,7 @@
     margin: 1rem 0;
     display: block;
     color: $mainBlue;
-    background-color: rgba(209, 241, 247, 0.308);
+    background-color: rgba(164, 241, 255, 0.308);
     padding: 1rem;
   }
   ul {

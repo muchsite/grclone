@@ -37,9 +37,8 @@ const Footer = () => {
           rel="noopener noreferrer"
           href="https://www.google.com/maps/place/31,+Block+G,+Sector+3,+Noida,+Uttar+Pradesh+201301,+%E1%83%98%E1%83%9C%E1%83%93%E1%83%9D%E1%83%94%E1%83%97%E1%83%98/@28.580347,77.319814,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce45a1410a8a9:0x6198106a8a774ec3!8m2!3d28.580347!4d77.319814!16s%2Fg%2F11fv4v5gn7?entry=ttu"
         >
-          <b>Corporate office: </b> <br /> B 8 & 9, Second floor, Block B,
-          Sector 1, Noida 201301 to 1st Floor, G-31, Block G, Sector 3, Noida
-          201301 this address.
+          <b>Corporate office: </b> <br /> 1st Floor, G-31, Block G, Sector 3,
+          Noida 201301
         </a>
         <p onClick={handlePhoneClick}>Contact: +91 99101 67228</p>
         <a href="mailto:info@growingseedtech.com">

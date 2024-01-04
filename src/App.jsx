@@ -8,6 +8,8 @@ import Footer from "./pages/footer/Footer";
 import LoadnigMain from "./loading/LoadnigMain.jsx";
 import CourseL from "./landignPages/CourseL.jsx";
 import WebinarL from "./landignPages/WebinarL.jsx";
+import Success from "./pages/success/Success.jsx";
+import SuccessW from "./pages/success/SuccessW.jsx";
 
 const Home = lazy(() => import("./pages/home/Home.jsx"));
 const Blogs = lazy(() => import("./pages/blogs/Blogs.jsx"));
@@ -50,6 +52,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/landing/course/:courseId" element={<CourseL />} />
             <Route path="/landing/webinar/:webinarId" element={<WebinarL />} />
+            <Route path="/landing/courses/success" element={<Success />} />
+            <Route path="/landing/webinars/success" element={<SuccessW />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/refund" element={<Refund />} />

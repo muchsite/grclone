@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { BaseURL, scrollTP } from "../pages/home/Home";
 import LoadnigMain from "../loading/LoadnigMain";
 import leftimg from "../images/left.svg";
@@ -32,7 +32,8 @@ const WebinarL = () => {
   const [webinars, setWebinars] = useState([]);
   const [recCount, setRecCount] = useState(0);
   const [recWidth, setRecWidth] = useState(0);
-
+  const [reaload, setReload] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchWebinar = async () => {
       try {
@@ -40,7 +41,6 @@ const WebinarL = () => {
         setWebinarData(res.data);
         setWebinar(res.data.id);
         const detail = DOMPurify.sanitize(res.data.detail);
-
         setWebinarDetail(detail);
         setIsLoading(false);
         scrollTP();
@@ -60,7 +60,7 @@ const WebinarL = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [reaload]);
   const formRef = useRef();
   const handleScroll = () => {
     if (formRef.current) {
@@ -83,11 +83,13 @@ const WebinarL = () => {
         `${BaseURL}/events-registration/`,
         states
       );
-      setSuccessreg(true);
+      // setSuccessreg(true);
       setShowLoading(false);
       setEmail("");
       setWh_Num("");
       setName("");
+      localStorage.setItem("watsapp", webinarData.whatsapp_group);
+      navigate("/landing/webinars/success");
     } catch (error) {
       setErrorMessage(error.response.data);
       setShowLoading(false);
@@ -126,7 +128,7 @@ const WebinarL = () => {
     }
   };
   const reload = () => {
-    window.location.reload(true);
+    setReload(!reaload);
   };
   return (
     <div className="clh">
@@ -208,13 +210,9 @@ const WebinarL = () => {
               <div className="success_text">
                 <h2>Thanks for Registering</h2>
                 <h2>
-                  Link to join WhatsApp group{" "}
+                  Link to join WhatsApp group
                   <span>
-                    <a
-                      // href={webinar?.whatsapp_group}
-                      target="_blank"
-                      href={webinarData.whatsapp_group}
-                    >
+                    <a target="_blank" href={webinarData.whatsapp_group}>
                       Link
                     </a>
                   </span>

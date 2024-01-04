@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import "./courseL.scss";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import DOMPurify from "dompurify";
@@ -15,7 +15,7 @@ import logo from "../images/G.svg";
 import clw from "../images/clw.webp";
 import close from "../images/close.svg";
 import Loading from "../loading/Loading";
-
+import lwb from "../images/lwb.svg";
 const CourseL = () => {
   const { courseId } = useParams();
   const [course, setCourse] = useState(null);
@@ -38,6 +38,8 @@ const CourseL = () => {
   const [sending, setSending] = useState(false);
   const [registerOpen, setRegisterOpen] = useState(false);
   const [contact, setContact] = useState(false);
+  const [reaload, setReload] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,7 +56,7 @@ const CourseL = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [reaload]);
 
   const dateToSeq = (dateString) => {
     const monthAbbreviations = [
@@ -116,11 +118,9 @@ const CourseL = () => {
       setName("");
       setEmail("");
       setWh_num("");
-      setTimeout(() => {
-        alert("Message has been sent!");
-        setSentMessage(false);
-      }, 1000);
+      setSentMessage(false);
       setSending(false);
+      navigate("/landing/courses/success");
     } catch (error) {
       console.log(error);
       setErrorMessage(error.response.data);
@@ -154,6 +154,10 @@ const CourseL = () => {
     if (direction < 0 && recCount > 0) {
       setRecCount(recCount - 1);
     }
+  };
+
+  const reload = () => {
+    setReload(!reaload);
   };
   return (
     <div className="clh">
@@ -220,6 +224,7 @@ const CourseL = () => {
           </form>
         </div>
         <img src={clw} alt="" className="course_hero_img_l" />
+        <img src={lwb} alt="" className="course_hero_img_l_2" />
       </div>
       {isLoading ? (
         <LoadnigMain />
@@ -227,7 +232,7 @@ const CourseL = () => {
         <>
           <div className="l_course_container">
             <div className={`l_courses_sticky`} onClick={scrollToRegister}>
-              Resgister Now!
+              Register Now!
             </div>
 
             <div className="l_course_hero">
@@ -256,8 +261,9 @@ const CourseL = () => {
                       <Link
                         ref={recRef}
                         className="courses_rec_item"
-                        to={`/course/${item.slug}`}
+                        to={`/landing/course/${item.slug}`}
                         key={index}
+                        onClick={() => reload()}
                       >
                         <div>
                           <img src={`${item.img}`} alt="Python Image" />
